@@ -31,3 +31,5 @@
 *.out
 *.app
 .vs
+Lab-Strings/x64
+x64
