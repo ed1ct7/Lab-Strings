@@ -17,7 +17,9 @@ public:
 	};
 
 	void Cout3Str_Num1() {
+
 		cout << "Exercise 1";
+
 		cout << this->strochka << "," << this->strochka << "," << this->strochka << ",";
 		cout << endl;
 	}
@@ -31,7 +33,9 @@ public:
 	}
 
 	void prikol_Num2() {
+
 		cout << "Exercise 2";
+
 		if (this->strochka.size() > 5) {
 
 			string tempStr{ this->strochka, 0, 3 };
@@ -72,14 +76,14 @@ public:
 				if (isSpace)  continue;
 				isSpace = true;
 			}
+
 			else {
 				isSpace = false;
 			}
 
 			newStr += strochka[i];
 		}
-
-		cout << newStr;
+		this->strochka = newStr;
 	}
 
 private:
@@ -93,4 +97,5 @@ int main()
 
 	Stroka_strochenka str1(3);
 	str1.deleteSpaces();
+	str1.CoutStr();
 }
