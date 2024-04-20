@@ -60,6 +60,12 @@ public:
 			}
 		}
 
+		for (int i = strochka.length(); i > 0; i--) {
+			if (strochka[strochka.length()] == ' ') {
+				strochka.pop_back();
+			}
+		}
+
 		for (int i = 0; i < strochka.length(); i++) {
 			
 			if (strochka[i] == ' ') {
@@ -69,11 +75,11 @@ public:
 			else {
 				isSpace = false;
 			}
+
 			newStr += strochka[i];
 		}
 
 		cout << newStr;
-
 	}
 
 private:
