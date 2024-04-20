@@ -48,11 +48,20 @@ public:
 	}
 
 	void deleteSpaces() {
+		
 		cout << "Exercise 3 " << endl;
-
-		string str_out = "";
+		
+		string newStr = "";
 		bool isSpace = false;
+		
 		for (int i = 0; i < strochka.length(); i++) {
+			if (strochka[0] == ' ') {
+				strochka.erase(0, 1);
+			}
+		}
+
+		for (int i = 0; i < strochka.length(); i++) {
+			
 			if (strochka[i] == ' ') {
 				if (isSpace)  continue;
 				isSpace = true;
@@ -60,10 +69,11 @@ public:
 			else {
 				isSpace = false;
 			}
-			str_out += strochka[i];
+			newStr += strochka[i];
 		}
-		this->strochka = str_out;
-		cout << strochka;
+
+		cout << newStr;
+
 	}
 
 private:
@@ -77,5 +87,4 @@ int main()
 
 	Stroka_strochenka str1(3);
 	str1.deleteSpaces();
-
 }
