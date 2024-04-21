@@ -18,7 +18,7 @@ public:
 
 	void Cout3Str_Num1() {
 
-		cout << "Exercise 1";
+		cout << "Exercise 1" << endl;
 
 		cout << this->strochka << "," << this->strochka << "," << this->strochka << ",";
 		cout << endl;
@@ -34,10 +34,9 @@ public:
 
 	void prikol_Num2() {
 
-		cout << "Exercise 2";
+		cout << "Exercise 2" << endl;
 
 		if (this->strochka.size() > 5) {
-
 			string tempStr{ this->strochka, 0, 3 };
 			string tempStr2 = this->strochka.substr(this->strochka.length() - 3);
 
@@ -53,7 +52,7 @@ public:
 
 	void deleteSpaces() {
 		
-		cout << "Exercise 3 " << endl;
+		cout << "Exercise 3" << endl;
 		
 		string newStr = "";
 		bool isSpace = false;
@@ -86,6 +85,73 @@ public:
 		this->strochka = newStr;
 	}
 
+	void reversWords() {
+
+		cout << "Exercise 4" << endl;
+
+		string newStr = "";
+		string MAX = "";
+		string tempStrochka = this->strochka;
+		int spaceCount = 0;
+
+		////////////////////////////////////////////////////////
+
+		for (int i = 0; i < strochka.length(); i++) {
+			if (strochka[0] == ' ') {
+				strochka.erase(0, 1);
+			}
+		}
+
+		for (int i = strochka.length(); i > 0; i--) {
+			if (strochka[strochka.length()] == ' ') {
+				strochka.pop_back();
+			}
+		}
+
+		////////////////////////////////////////////////////////
+
+		for (int i = strochka.length(); i > 0; i--) {
+			if (strochka[i] == ' ') {
+				spaceCount++;
+			}
+		}
+
+		for (size_t i = 0; i < (spaceCount+1); i++) // finds max
+		{
+			for (int i = 0; i < tempStrochka.length(); i++) {
+				if (tempStrochka[0] == ' ') {
+					tempStrochka.erase(0, 1);
+				}
+			} // erase spaces beffore
+			
+			for (int i = 0; i < tempStrochka.length(); i++)
+			{
+				if (tempStrochka[i] != ' ') {
+					newStr += tempStrochka[i];
+				}
+				else {
+					break;
+				}
+			}
+			if (newStr.length() > MAX.length())
+			{
+				MAX = newStr;
+			}
+			
+			for (int i = 0; i < tempStrochka.length(); i++) {
+				if (tempStrochka[0] == ' ') {
+					tempStrochka.erase(0, 1);
+				}
+			} // erase spaces beffore
+
+			tempStrochka.erase(0, (newStr.length())); // erase first word
+
+			newStr = ""; // reloads newStr
+		}
+		cout << "Current Strochka is " << tempStrochka << endl;
+		cout << "Max is " << MAX << endl;
+	}
+
 private:
 	string strochka;
 	int symbol_count;
@@ -96,6 +162,5 @@ int main()
 	setlocale(LC_ALL, "ru"); // Не работает доконца
 
 	Stroka_strochenka str1(3);
-	str1.deleteSpaces();
-	str1.CoutStr();
+	str1.reversWords();
 }
