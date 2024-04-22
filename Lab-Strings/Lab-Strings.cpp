@@ -98,22 +98,6 @@ public:
 		string Main = "";
 		int spaceCount = 0;
 
-		////////////////////////////////////////////////////////
-
-		for (int i = 0; i < strochka.length(); i++) {
-			if (strochka[0] == ' ') {
-				strochka.erase(0, 1);
-			}
-		}
-
-		for (int i = strochka.length(); i > 0; i--) {
-			if (strochka[strochka.length()] == ' ') {
-				strochka.pop_back();
-			}
-		}
-
-		////////////////////////////////////////////////////////
-
 		for (int i = strochka.length(); i > 0; i--) {
 			if (strochka[i] == ' ') {
 				spaceCount++;
