@@ -18,13 +18,12 @@ public:
 
 	void Cout3Str() {
 		cout << "Exercise 1" << endl;
-
 		cout << this->strochka << "," << this->strochka << "," << this->strochka << ",";
 		cout << endl;
 	}
 
 	int getSymbol_count() {
-		return this->strochka.size();
+		return this->strochka.length();
 	}
 
 	string getStr() {
