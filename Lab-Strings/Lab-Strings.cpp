@@ -139,8 +139,12 @@ public:
 					break;
 				}
 			}
+
 			if (newStr.length() > MAX.length())
 			{
+				MAX = newStr;
+			}
+			else if (newStr.length() == MAX.length()) {
 				MAX = newStr;
 			}
 
@@ -173,6 +177,8 @@ public:
 
 			if (MIN.length() > newStr.length())
 			{
+				MIN = newStr;
+			}else if (newStr.length() == MIN.length()) {
 				MIN = newStr;
 			}
 
@@ -216,6 +222,7 @@ public:
 
 			newStr = ""; // reloads newStr
 		}
+
 		cout << "Main is " << Main << endl;
 		this->strochka = Main;
 	}
