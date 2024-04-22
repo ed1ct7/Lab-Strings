@@ -16,8 +16,7 @@ public:
 		cout << endl;
 	};
 
-	void Cout3Str_Num1() {
-
+	void Cout3Str() {
 		cout << "Exercise 1" << endl;
 
 		cout << this->strochka << "," << this->strochka << "," << this->strochka << ",";
@@ -91,7 +90,9 @@ public:
 
 		string newStr = "";
 		string MAX = "";
-		string tempStrochka = this->strochka;
+		string MIN = "";
+		string tempStrochkaMAX = this->strochka;
+		string tempStrochkaMIN = this->strochka;
 		int spaceCount = 0;
 
 		////////////////////////////////////////////////////////
@@ -118,16 +119,16 @@ public:
 
 		for (size_t i = 0; i < (spaceCount+1); i++) // finds max
 		{
-			for (int i = 0; i < tempStrochka.length(); i++) {
-				if (tempStrochka[0] == ' ') {
-					tempStrochka.erase(0, 1);
+			for (int i = 0; i < tempStrochkaMAX.length(); i++) {
+				if (tempStrochkaMAX[0] == ' ') {
+					tempStrochkaMAX.erase(0, 1);
 				}
 			} // erase spaces beffore
 			
-			for (int i = 0; i < tempStrochka.length(); i++)
+			for (int i = 0; i < tempStrochkaMAX.length(); i++)
 			{
-				if (tempStrochka[i] != ' ') {
-					newStr += tempStrochka[i];
+				if (tempStrochkaMAX[i] != ' ') {
+					newStr += tempStrochkaMAX[i];
 				}
 				else {
 					break;
@@ -138,18 +139,53 @@ public:
 				MAX = newStr;
 			}
 			
-			for (int i = 0; i < tempStrochka.length(); i++) {
-				if (tempStrochka[0] == ' ') {
-					tempStrochka.erase(0, 1);
+			for (int i = 0; i < tempStrochkaMAX.length(); i++) {
+				if (tempStrochkaMAX[0] == ' ') {
+					tempStrochkaMAX.erase(0, 1);
 				}
 			} // erase spaces beffore
 
-			tempStrochka.erase(0, (newStr.length())); // erase first word
+			tempStrochkaMAX.erase(0, (newStr.length())); // erase first word
 
 			newStr = ""; // reloads newStr
 		}
-		cout << "Current Strochka is " << tempStrochka << endl;
+
+		for (size_t i = 0; i < (spaceCount + 1); i++) // finds min
+		{
+			for (int i = 0; i < tempStrochkaMIN.length(); i++) {
+				if (tempStrochkaMIN[0] == ' ') {
+					tempStrochkaMIN.erase(0, 1);
+				}
+			} // erase spaces beffore
+
+			for (int i = 0; i < tempStrochkaMIN.length(); i++)
+			{
+				if (tempStrochkaMIN[i] != ' ') {
+					newStr += tempStrochkaMIN[i];
+				}
+				else {
+					break;
+				}
+			}
+
+			//if (MIN.length() < newStr.length())
+			//{
+			//	MIN = newStr;
+			//} xzche delat
+
+			for (int i = 0; i < tempStrochkaMIN.length(); i++) {
+				if (tempStrochkaMIN[0] == ' ') {
+					tempStrochkaMIN.erase(0, 1);
+				}
+			} // erase spaces beffore
+
+			tempStrochkaMIN.erase(0, (newStr.length())); // erase first word
+
+			newStr = ""; // reloads newStr
+		}
+
 		cout << "Max is " << MAX << endl;
+		cout << "Min is " << MIN << endl;
 	}
 
 private:
