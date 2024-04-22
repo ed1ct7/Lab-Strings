@@ -50,8 +50,8 @@ public:
 	}
 
 	void deleteSpaces() {
-		
-		cout << "Exercise 3" << endl;
+
+		cout << "deleteSpaces function used" << endl;
 		
 		string newStr = "";
 		bool isSpace = false;
@@ -86,13 +86,16 @@ public:
 
 	void reversWords() {
 
-		cout << "Exercise 4" << endl;
+		cout << "reversWords function used" << endl;
+
+		deleteSpaces();
 
 		string newStr = "";
 		string MAX = "";
 		string MIN = "";
 		string tempStrochkaMAX = this->strochka;
 		string tempStrochkaMIN = this->strochka;
+		string tempStrochka = this->strochka;
 		int spaceCount = 0;
 
 		////////////////////////////////////////////////////////
@@ -119,7 +122,8 @@ public:
 
 		for (size_t i = 0; i < (spaceCount+1); i++) // finds max
 		{
-			for (int i = 0; i < tempStrochkaMAX.length(); i++) {
+			int tempLength = tempStrochkaMAX.length();
+			for (int i = 0; i < tempLength; i++) {
 				if (tempStrochkaMAX[0] == ' ') {
 					tempStrochkaMAX.erase(0, 1);
 				}
@@ -138,21 +142,19 @@ public:
 			{
 				MAX = newStr;
 			}
-			
-			for (int i = 0; i < tempStrochkaMAX.length(); i++) {
-				if (tempStrochkaMAX[0] == ' ') {
-					tempStrochkaMAX.erase(0, 1);
-				}
-			} // erase spaces beffore
 
 			tempStrochkaMAX.erase(0, (newStr.length())); // erase first word
 
 			newStr = ""; // reloads newStr
 		}
 
+		MIN = MAX;
+
 		for (size_t i = 0; i < (spaceCount + 1); i++) // finds min
 		{
-			for (int i = 0; i < tempStrochkaMIN.length(); i++) {
+			int tempLength = tempStrochkaMIN.length();
+
+			for (int i = 0; i < tempLength; i++) {
 				if (tempStrochkaMIN[0] == ' ') {
 					tempStrochkaMIN.erase(0, 1);
 				}
@@ -168,16 +170,10 @@ public:
 				}
 			}
 
-			//if (MIN.length() < newStr.length())
-			//{
-			//	MIN = newStr;
-			//} xzche delat
-
-			for (int i = 0; i < tempStrochkaMIN.length(); i++) {
-				if (tempStrochkaMIN[0] == ' ') {
-					tempStrochkaMIN.erase(0, 1);
-				}
-			} // erase spaces beffore
+			if (MIN.length() > newStr.length())
+			{
+				MIN = newStr;
+			}
 
 			tempStrochkaMIN.erase(0, (newStr.length())); // erase first word
 
@@ -186,6 +182,29 @@ public:
 
 		cout << "Max is " << MAX << endl;
 		cout << "Min is " << MIN << endl;
+
+		for (size_t i = 0; i < (spaceCount + 1); i++) // finds min
+		{
+			string Main = "";
+			for (int i = 0; i < tempStrochka.length(); i++){
+				if (tempStrochka[i] != ' ') {
+					newStr += tempStrochka[i];
+				}
+				else {
+					break;
+				}
+			}
+			if (MAX.length() < newStr.length()) {
+
+			}
+			else if (MIN.length() > newStr.length()) {
+
+			}
+			else {
+
+			}
+			newStr = ""; // reloads newStr
+		}
 	}
 
 private:
@@ -199,4 +218,6 @@ int main()
 
 	Stroka_strochenka str1(3);
 	str1.reversWords();
+
+	return 0;
 }
