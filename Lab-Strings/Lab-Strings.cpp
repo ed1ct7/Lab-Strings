@@ -96,6 +96,7 @@ public:
 		string tempStrochkaMAX = this->strochka;
 		string tempStrochkaMIN = this->strochka;
 		string tempStrochka = this->strochka;
+		string Main = "";
 		int spaceCount = 0;
 
 		////////////////////////////////////////////////////////
@@ -185,7 +186,14 @@ public:
 
 		for (size_t i = 0; i < (spaceCount + 1); i++) // finds min
 		{
-			string Main = "";
+			int tempLength = tempStrochka.length();
+
+			for (int i = 0; i < tempLength; i++) {
+				if (tempStrochka[0] == ' ') {
+					tempStrochka.erase(0, 1);
+				}
+			} // erase spaces beffore
+			
 			for (int i = 0; i < tempStrochka.length(); i++){
 				if (tempStrochka[i] != ' ') {
 					newStr += tempStrochka[i];
@@ -194,22 +202,26 @@ public:
 					break;
 				}
 			}
-			if (MAX.length() < newStr.length()) {
-
+			if (MAX == newStr) {
+				Main += (MIN + " ");
 			}
-			else if (MIN.length() > newStr.length()) {
-
+			else if (MIN == newStr) {
+				Main += (MAX + " ");
 			}
 			else {
-
+				Main += (newStr + " ");
 			}
+
+			tempStrochka.erase(0, (newStr.length())); // erase first word
+
 			newStr = ""; // reloads newStr
 		}
+		cout << "Main is " << Main << endl;
+		this->strochka = Main;
 	}
 
 private:
 	string strochka;
-	int symbol_count;
 };
 
 int main()
